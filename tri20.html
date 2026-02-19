@@ -124,7 +124,7 @@ body.vertical-read .nav {
     padding: 60px 0 100px 0; 
     position: relative; 
     flex-shrink: 0; /* Prevent shrinking in flex container */
-    text-align: center; /* Center inline content like tri 20 */
+    text-align: center; /* Center inline content like images */
 }
 
 /* Delete Page Button Style */
@@ -2891,8 +2891,8 @@ document.getElementById('bulkInput').addEventListener('change', async function(e
     const slides = document.querySelectorAll('.slide');
     if(slides.length === 1) {
         const firstSlide = slides[0];
-        const hastri 20 = firstSlide.querySelectorAll('img').length > 0;
-        if(!hastri 20) slider.innerHTML = ''; 
+        const hasImages = firstSlide.querySelectorAll('img').length > 0;
+        if(!hasImages) slider.innerHTML = ''; 
     }
     loadingOverlay.style.display = 'flex';
     try {
@@ -3149,7 +3149,7 @@ function changeTheme(themeName) { document.body.className = themeName; }
 // --- EXPORT AS ZIP LOGIC ---
 async function downloadZip(){
   const zip = new JSZip();
-  const imgFolder = zip.folder("tri 20");
+  const imgFolder = zip.folder("images");
   
   const clone = document.documentElement.cloneNode(true);
   
@@ -3188,13 +3188,13 @@ async function downloadZip(){
   `;
   clone.querySelector('body').appendChild(exportScript);
 
-  // 6. Process tri 20
-  const tri 20 = clone.querySelectorAll("img.editable-img");
-  const originaltri 20 = document.querySelectorAll("img.editable-img");
+  // 6. Process Images
+  const images = clone.querySelectorAll("img.editable-img");
+  const originalImages = document.querySelectorAll("img.editable-img");
 
-  for(let i=0; i<tri 20.length; i++) {
-      const imgClone = tri 20[i];
-      const imgOriginal = originaltri 20[i];
+  for(let i=0; i<images.length; i++) {
+      const imgClone = images[i];
+      const imgOriginal = originalImages[i];
       let filename = `img_${Date.now()}_${i}.jpg`;
       let data = null;
 
